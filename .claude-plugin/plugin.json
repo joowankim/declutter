@@ -1,0 +1,23 @@
+{
+  "name": "declutter",
+  "version": "1.0.0",
+  "description": "Legacy code refactoring specialist - clean up your messy code with safe, test-driven refactoring",
+  "author": {
+    "name": "Declutter Team"
+  },
+  "keywords": [
+    "refactoring",
+    "legacy-code",
+    "code-smells",
+    "design-patterns",
+    "python",
+    "typescript",
+    "react",
+    "clean-code"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joowankim/declutter"
+  },
+  "license": "MIT"
+}

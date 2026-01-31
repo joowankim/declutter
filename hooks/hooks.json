@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Declutter plugin hooks configuration",
+
+  "PreToolUse": [
+    {
+      "description": "Enforce refactoring rules before tool use",
+      "matcher": {
+        "toolName": ["Edit", "Write"]
+      },
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/declutter-enforcer.mjs\"",
+          "timeout": 5000
+        }
+      ]
+    }
+  ],
+
+  "PostToolUse": [
+    {
+      "description": "Track test runs for enforcement",
+      "matcher": {
+        "toolName": "Bash",
+        "toolInput": {
+          "command": {
+            "contains": ["pytest", "npm test", "go test", "jest", "vitest", "mocha"]
+          }
+        }
+      },
+      "hooks": [
+        {
+          "type": "command",
+          "command": "echo \"DECLUTTER_TEST_RUN=$(date +%s)\" >> \"${CLAUDE_PLUGIN_ROOT}/.declutter-state\"",
+          "timeout": 1000
+        }
+      ]
+    }
+  ],
+
+  "SessionStart": [
+    {
+      "description": "Initialize declutter state",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "mkdir -p \"${CLAUDE_PLUGIN_ROOT}\" && touch \"${CLAUDE_PLUGIN_ROOT}/.declutter-state\"",
+          "timeout": 1000
+        }
+      ]
+    }
+  ]
+}

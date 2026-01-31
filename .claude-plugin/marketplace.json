@@ -1,0 +1,23 @@
+{
+  "name": "declutter",
+  "owner": {
+    "name": "Joowankim",
+    "email": "contact@example.com"
+  },
+  "metadata": {
+    "description": "Legacy code refactoring plugins",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "declutter",
+      "source": ".",
+      "description": "Legacy code refactoring specialist - clean up your messy code with safe, test-driven refactoring",
+      "version": "1.0.0",
+      "displayName": "Declutter",
+      "category": "code-quality",
+      "tags": ["refactoring", "legacy-code", "code-smells", "tdd", "clean-code"],
+      "icon": "broom"
+    }
+  ]
+}
