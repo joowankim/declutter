@@ -15,9 +15,6 @@
     "react",
     "clean-code"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/joowankim/declutter"
-  },
+  "repository": "https://github.com/joowankim/declutter",
   "license": "MIT"
 }
